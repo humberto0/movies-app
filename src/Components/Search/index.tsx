@@ -17,13 +17,17 @@ export const Search = () => {
       const response = await api.get(`/movie/${title}`);
       store.dispatch(addMovie(response.data));
     } catch (err) {
-      console.log(err);
       setError(true);
     }
   };
-
+  
   function handleInputChange(event: any) {
     setTitle(event.target.value);
+    if (event.type === 'keydown') {
+      if (event.key === 'Enter') {
+        handleSubmit();
+      }
+    }
   }
 
   function handleClear() {
@@ -38,10 +42,10 @@ export const Search = () => {
           placeholder="Digite o nome do filme"
           value={title}
           onInput={handleInputChange}
-          onPointerEnter={handleInputChange}
+          onKeyDown={(event)=> handleInputChange(event)}
         />
-        <Button onClick={handleSubmit} design={error?"Negative":"Emphasized"} >Buscar</Button>
-        <Button onClick={handleClear}>Limpar</Button>
+        <Button onClick={handleSubmit} design={error?"Negative":"Emphasized"}>Buscar</Button>
+        <Button onClick={handleClear} >Limpar</Button>
       </form>
       {error&&<span>O correu um erro na sua busca tente novamente mais tarde</span>}
     </div>
