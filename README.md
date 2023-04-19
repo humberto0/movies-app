@@ -25,14 +25,14 @@ This will start the app in development mode, and you can access it by navigating
 
 This app relies on the following packages:
 
-`@reduxjs/toolkit`: A toolkit for building Redux applications
-`@ui5/webcomponents-react`: A library of UI components for React applications
-`axios`: A library for making HTTP requests
-`react`: A JavaScript library for building user interfaces
-`react-dom`: A package for rendering React components to the DOM
-`react-redux`: A library for integrating React with Redux
-`redux-persist`: A library for persisting Redux state
-`sass`: A CSS extension language
+* `@reduxjs/toolkit`: A toolkit for building Redux applications
+* `@ui5/webcomponents-react`: A library of UI components for React applications
+* `axios`: A library for making HTTP requests
+* `react`: A JavaScript library for building user interfaces
+* `react-dom`: A package for rendering React components to the DOM
+* `react-redux`: A library for integrating React with Redux
+* `redux-persist`: A library for persisting Redux state
+* `sass`: A CSS extension language
 
 ## Development Dependencies
 
