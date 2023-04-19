@@ -21,7 +21,7 @@ export const MovieData = () => {
               </div>
               <div className={styles.subtitleContent}>
                 <h3 className={styles.subtitle}>Review:</h3>
-                <RatingIndicator value={Number(listMovie.imdbRating)/2} />
+                <RatingIndicator value={Number(listMovie.imdbRating)/2} disabled />
               </div>
             </div>
 
