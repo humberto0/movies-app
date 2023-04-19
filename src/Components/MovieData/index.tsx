@@ -1,10 +1,23 @@
 import styles from "./styles.module.scss";
 import { useSelector } from "react-redux";
-import { store } from "../../redux/store";
 import { RatingIndicator } from "@ui5/webcomponents-react";
+import { store } from "../../redux/store";
+import { favoriteMovie } from "../../redux/slices";
+import { useCallback, useEffect, useState } from "react";
 
 export const MovieData = () => {
   const listMovie = useSelector(() => store.getState().movieReducer.movie);
+  const [favorite, setFavorite] = useState(false)
+
+  useEffect(() => {
+    setFavorite(false)
+  },[listMovie])
+
+  const handleFavorite = useCallback(() => {
+    store.dispatch(favoriteMovie(listMovie!.title as string))
+    setFavorite(!favorite)
+  },[listMovie])
+
   return (
     <>
       {listMovie ? (
@@ -16,13 +29,21 @@ export const MovieData = () => {
               <div className={styles.subtitleContent}>
                 <h3 className={styles.subtitle}>Actor:</h3>
                 {listMovie?.actors?.map((actor) => (
-                  <h2 className={styles.subDescription}> {actor} </h2>
+                  <h2 key={actor} className={styles.subDescription}> {actor} </h2>
                 ))}
               </div>
               <div className={styles.subtitleContent}>
                 <h3 className={styles.subtitle}>Review:</h3>
-                <RatingIndicator value={Number(listMovie.imdbRating)/2} disabled />
+                <RatingIndicator
+                  value={Number(listMovie.imdbRating) / 2}
+                  disabled
+                />
               </div>
+              <div className={styles.subtitleContent}>
+              <button onClick={handleFavorite}  className={listMovie.liked || favorite ?styles.onFavorite: styles.offFavorite}  >
+                Favoritar ❤️
+              </button>
+              </div>  
             </div>
 
             <img

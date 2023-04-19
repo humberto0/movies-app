@@ -32,6 +32,7 @@ export const Search = () => {
           placeholder="Digite o nome do filme"
           value={title}
           onInput={handleInputChange}
+          onPointerEnter={handleInputChange}
         />
         <Button onClick={handleSubmit}>Buscar</Button>
         <Button onClick={handleClear}>Limpar</Button>
