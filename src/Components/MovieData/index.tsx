@@ -1,6 +1,7 @@
 import styles from "./styles.module.scss";
 import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
+import { RatingIndicator } from "@ui5/webcomponents-react";
 
 export const MovieData = () => {
   const listMovie = useSelector(() => store.getState().movieReducer.movie);
@@ -20,9 +21,8 @@ export const MovieData = () => {
               </div>
               <div className={styles.subtitleContent}>
                 <h3 className={styles.subtitle}>Review:</h3>
-                <h2 className={styles.subDescription}>
-                  {listMovie.imdbRating}
-                </h2>
+
+                <RatingIndicator value={Number(listMovie.imdbRating)/2} />
               </div>
             </div>
 
