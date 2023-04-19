@@ -2,6 +2,9 @@
 
 This is a React-based web application that allows users to search for movies, view details about them such as author, ratings, and descriptions, and also favorite them for easy access later. The app retrieves movie data from an external API provided by the author.
 
+![Captura de tela de 2023-04-19 18-58-56](https://user-images.githubusercontent.com/15384670/233211432-6de8d61c-b833-4313-aa32-abb12bf02acb.png)
+
+
 ## Features
 
 * Search for movies by title or keywords
