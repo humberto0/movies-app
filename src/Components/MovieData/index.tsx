@@ -4,6 +4,7 @@ import { RatingIndicator } from "@ui5/webcomponents-react";
 import { store } from "../../redux/store";
 import { favoriteMovie } from "../../redux/slices";
 import { useCallback, useEffect, useState } from "react";
+import pipoca from '../../assets/pipoca.gif';
 
 export const MovieData = () => {
   const listMovie = useSelector(() => store.getState().movieReducer.movie);
@@ -54,7 +55,9 @@ export const MovieData = () => {
           </aside>
         </div>
       ) : (
-        <div className={styles.container} />
+        <div className={styles.container} >
+          <img src={pipoca} alt="pipoca" className={styles.imageGif}  />
+        </div>
       )}
     </>
   );
